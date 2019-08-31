@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+//https://github.com/aspnet/EntityFrameworkCore/issues/2805
+
 namespace SponsorLoeb.Data.EntityFrameworkCore
 {
     public static class ModelBuilderExtensions

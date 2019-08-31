@@ -2,6 +2,8 @@
 using SponsorLoeb.Data.Entities;
 using SponsorLoeb.Data.EntityFrameworkCore;
 
+//https://github.com/aspnet/EntityFrameworkCore/issues/2805
+
 namespace Microsoft.EntityFrameworkCore//SponsorLoeb.Data.Mappers
 {
     class BrugerMapper : EntityTypeConfiguration<Bruger>
