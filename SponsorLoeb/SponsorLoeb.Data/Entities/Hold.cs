@@ -9,7 +9,7 @@ namespace SponsorLoeb.Data.Entities
         public string Navn { get; set; }
         public int? AntalElever { get; set; }
 
-        public ICollection<Deltager> Deltagers { get; set; }
+        public ICollection<Deltager> Deltagere { get; set; }
         // Foreign Keys
         public int Loeb_Id { get; set; }
     }

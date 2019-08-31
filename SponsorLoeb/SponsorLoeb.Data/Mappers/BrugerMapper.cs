@@ -1,16 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SponsorLoeb.Data.Entities;
 using SponsorLoeb.Data.EntityFrameworkCore;
 
 //https://github.com/aspnet/EntityFrameworkCore/issues/2805
 
-namespace Microsoft.EntityFrameworkCore//SponsorLoeb.Data.Mappers
+namespace SponsorLoeb.Data.Mappers
 {
     class BrugerMapper : EntityTypeConfiguration<Bruger>
     {
         public override void Map(EntityTypeBuilder<Bruger> builder)
         {
-            builder.ToTable("Bruger");
+            builder.Property(b => b.Email)
+                .IsRequired()
+                .HasMaxLength(200);
 
             builder.Property(b => b.Navn)
                 .IsRequired()
@@ -19,6 +22,13 @@ namespace Microsoft.EntityFrameworkCore//SponsorLoeb.Data.Mappers
             builder.Property(b => b.Adresse)
                 .IsRequired()
                 .HasMaxLength(500);
+
+            builder.Property(b => b.Telefon)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            // Foreign key relationer
+            builder.HasOne(b => b.PostBy).WithMany(b => b.Brugere).HasForeignKey(b => b.PostBy_Id);
 
         }
 

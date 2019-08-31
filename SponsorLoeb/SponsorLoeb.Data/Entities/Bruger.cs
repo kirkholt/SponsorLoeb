@@ -13,8 +13,8 @@ namespace SponsorLoeb.Data.Entities
         public string Telefon { get; set; }
 
         // Navigation Properties
-        public ICollection<Sponsor> Sponsors{ get; set; }
-        public ICollection<Deltager> Deltagers { get; set; }
+        public ICollection<Sponsor> Sponsorer{ get; set; }
+        public ICollection<Deltager> Deltagere { get; set; }
 
         // Foreign Keys
         public int PostBy_Id { get; set; }

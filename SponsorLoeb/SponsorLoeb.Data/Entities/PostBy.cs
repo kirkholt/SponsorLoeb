@@ -11,8 +11,8 @@ namespace SponsorLoeb.Data.Entities
         #endregion
 
         #region Navigation Properties
-        public ICollection<Bruger> Brugers { get; set; }
-        public ICollection<Sponsor> Sponsors{ get; set; }
+        public ICollection<Bruger> Brugere { get; set; }
+        public ICollection<Sponsor> Sponsorer{ get; set; }
         #endregion
     }
 }
