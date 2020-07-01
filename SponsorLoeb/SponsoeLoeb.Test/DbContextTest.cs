@@ -11,7 +11,9 @@ namespace SponsoeLoeb.Test
         {
             var options = new DbContextOptionsBuilder<SponsorLoebContext>()
                  //.UseSqlServer(@"Server =OLE-WIN10\sql2017;Database=SponsorLoeb;Trusted_Connection=True")
-                .UseSqlite(@"Data Source=e:\temp\SponsorLoeb.db").UseLoggerFactory(SponsorLoebContext.loggerFactory).EnableSensitiveDataLogging()
+                .UseSqlite(@"Data Source=e:\temp\SponsorLoeb.db")
+                .UseLoggerFactory(SponsorLoebContext.MyLoggerFactory)
+                .EnableSensitiveDataLogging()
                 .Options;
 
             // Run the test against one instance of the context

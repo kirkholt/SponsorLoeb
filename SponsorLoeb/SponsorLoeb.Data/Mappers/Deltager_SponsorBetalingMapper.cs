@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SponsorLoeb.Data.Entities;
-using SponsorLoeb.Data.EntityFrameworkCore;
 
 namespace SponsorLoeb.Data.Mappers
 {
-    class Deltager_SponsorBetalingMapper : EntityTypeConfiguration<Deltager_SponsorBetaling>
+    class Deltager_SponsorBetalingMapper : IEntityTypeConfiguration<Deltager_SponsorBetaling>
     {
-        public override void Map(EntityTypeBuilder<Deltager_SponsorBetaling> builder)
+        public void Configure(EntityTypeBuilder<Deltager_SponsorBetaling> builder)
         {
             builder.ToTable("Deltager_SponsorBetaling");
 

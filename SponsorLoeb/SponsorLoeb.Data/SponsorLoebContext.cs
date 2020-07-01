@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-using SponsorLoeb.Data.EntityFrameworkCore;
-using SponsorLoeb.Data.Mappers;
 
 namespace SponsorLoeb.Data
 {
@@ -14,11 +11,9 @@ namespace SponsorLoeb.Data
 
         public SponsorLoebContext(DbContextOptions<SponsorLoebContext> options) : base(options)
         { }
-        
+
         //static LoggerFactory object
-        public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
-              new ConsoleLoggerProvider((_, __) => true, true)
-        });
+        public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -27,10 +22,10 @@ namespace SponsorLoeb.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.AddConfiguration(new PostByMapper());
-            modelBuilder.AddConfiguration(new BrugerMapper());
-            modelBuilder.AddConfiguration(new DeltagerMapper());
-            modelBuilder.AddConfiguration(new Deltager_SponsorBetalingMapper());
+            //https://stackoverflow.com/questions/51842709/modelbuilder-configurations-addfromassembly-in-ef-core
+            base.OnModelCreating(modelBuilder);
+            // Tilføj alle Configuration (Mappers) i assembly
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SponsorLoebContext).Assembly);
         }
     }
 }

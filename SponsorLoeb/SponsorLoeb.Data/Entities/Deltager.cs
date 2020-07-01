@@ -7,7 +7,7 @@ namespace SponsorLoeb.Data.Entities
     {
         public int Id { get; set; }
         public Bruger Bruger{ get; set; }
-        public Hold Hold { get; set; }
+        public Hold? Hold { get; set; }
         //public DeltagerNr DeltagerNr { get; set; }
         public int? AntalOmgange { get; set; }
 

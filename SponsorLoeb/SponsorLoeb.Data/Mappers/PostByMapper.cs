@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SponsorLoeb.Data.Entities;
-using SponsorLoeb.Data.EntityFrameworkCore;
+
 
 
 namespace SponsorLoeb.Data.Mappers
 {
-    class PostByMapper : EntityTypeConfiguration<PostBy>
+    class PostByMapper : IEntityTypeConfiguration<PostBy>
     {
-        public override void Map(EntityTypeBuilder<PostBy> builder)
+        public void Configure(EntityTypeBuilder<PostBy> builder)
         {
             builder.HasKey(b => b.Id);
 

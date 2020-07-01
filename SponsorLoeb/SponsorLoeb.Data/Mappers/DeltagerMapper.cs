@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SponsorLoeb.Data.Entities;
-using SponsorLoeb.Data.EntityFrameworkCore;
 
 namespace SponsorLoeb.Data.Mappers
 {
-    class DeltagerMapper : EntityTypeConfiguration<Deltager>
+    class DeltagerMapper : IEntityTypeConfiguration<Deltager>
     {
-        public override void Map(EntityTypeBuilder<Deltager> builder)
+        public void Configure(EntityTypeBuilder<Deltager> builder)
         {
             builder.HasKey(b => b.Id);
 
